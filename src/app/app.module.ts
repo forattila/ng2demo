@@ -10,11 +10,17 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import {NG2DEMO_ROUTES} from './routes';
 import { HomeComponent } from './components/home/home.component';
+import { FirstComponent } from './components/first/first.component';
+import { SecondComponent } from './components/second/second.component';
+
+import {IntervalService} from './services/index';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    FirstComponent,
+    SecondComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,8 @@ import { HomeComponent } from './components/home/home.component';
   ],
   providers: [        
     Location,    
-    {provide: LocationStrategy, useClass: PathLocationStrategy}],
+    {provide: LocationStrategy, useClass: PathLocationStrategy},
+    IntervalService],    
   bootstrap: [AppComponent]
 })
 export class AppModule { }
