@@ -14,13 +14,15 @@ import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 
 import {IntervalService} from './services/index';
+import { IntervalListComponent } from './components/interval-list/interval-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    IntervalListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
+import {ComponentBase} from '../common/componentBase';
 import {RouteInterval} from '../../model/index';
 import {IntervalService} from '../../services/index';
 
@@ -7,23 +8,18 @@ import {IntervalService} from '../../services/index';
   templateUrl: './first.component.html',
   styleUrls: ['./first.component.scss']
 })
-export class FirstComponent implements OnInit, OnDestroy{
+export class FirstComponent extends ComponentBase implements OnInit, OnDestroy{
 
-  currentRouteInterval: RouteInterval;
-
-  constructor(private intervalService: IntervalService) { 
-
+  constructor(intervalService: IntervalService) { 
+     super(intervalService);
   }
 
   ngOnInit() {
-    this.currentRouteInterval = new RouteInterval(new Date(),'first');
-    this.intervalService.routeIntervals.push(this.currentRouteInterval);
+    super.ngOnInit('first');
   }
 
-  ngOnDestroy(){
-    let interval = this.intervalService.routeIntervals.find(i=>i.Id===this.currentRouteInterval.Id);
-    this.currentRouteInterval.endTimeStamp = new Date();
-    this.currentRouteInterval.interval = (interval.endTimeStamp.getTime()-interval.startTimeStamp.getTime())/1000;
+  ngOnDestroy(){    
+    super.ngOnDestroy();
   }
 
 }

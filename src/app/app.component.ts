@@ -1,6 +1,4 @@
 import {Component, ViewEncapsulation, ElementRef} from '@angular/core';
-import {RouteInterval} from './model/index';
-import {IntervalService} from './services/index';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +14,6 @@ export class AppComponent {
     {name: 'Second', route: 'second'}
   ];
   
-  private routeIntervals:Array<RouteInterval>;
-
-  constructor(private intervalService: IntervalService){
-    this.routeIntervals = this.intervalService.routeIntervals;
+  constructor(){    
   }
 }
