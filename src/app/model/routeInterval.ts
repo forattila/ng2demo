@@ -1,3 +1,11 @@
+interface IRouteInterval{
+    Id?:string;
+    name:string;
+    startTimeStamp:Date;
+    endTimeStamp?:Date;
+    interval?:number;
+}
+
 export class RouteInterval {
     private _id : string;
 
@@ -11,15 +19,16 @@ export class RouteInterval {
 
     public interval : number;
 
-    constructor(startTimeStamp : Date, name : string) {
-        this._id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    constructor(routeInterval: IRouteInterval) {
+        this._id = routeInterval.Id?routeInterval.Id: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             let r = Math.random() * 16 | 0,
                 v = c === 'x'
                     ? r
                     : (r & 0x3 | 0x8);
             return v.toString(16);
         });
-        this.startTimeStamp = startTimeStamp;
-        this.name = name;
+        this.startTimeStamp = routeInterval.startTimeStamp;
+        this.name = routeInterval.name;
+        this.endTimeStamp = routeInterval.endTimeStamp;
     }
 }

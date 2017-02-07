@@ -1,15 +1,1 @@
-<h2>Routing info</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Interval</th>
-  </tr>
-  <tr *ngFor="let interval of routeIntervals">
-    <td>{{interval.name}}</td>
-    <td>{{interval.startTimeStamp | date}}</td>
-    <td>{{interval.endTimeStamp | date}}</td>
-    <td>{{interval.interval}} s</td>
-  </tr>
-</table>
+<app-dumb-interval-list [routeIntervals]="routeIntervals"></app-dumb-interval-list>

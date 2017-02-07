@@ -16,13 +16,17 @@ import { SecondComponent } from './components/second/second.component';
 import {IntervalService} from './services/index';
 import { IntervalListComponent } from './components/interval-list/interval-list.component';
 
+import {provideStore} from '@ngrx/store';
+import {routeIntervals} from './reducers/index';
+import { DumbIntervalListComponent } from './components/dumb-interval-list/dumb-interval-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FirstComponent,
     SecondComponent,
-    IntervalListComponent
+    IntervalListComponent,
+    DumbIntervalListComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,11 @@ import { IntervalListComponent } from './components/interval-list/interval-list.
   providers: [        
     Location,    
     {provide: LocationStrategy, useClass: PathLocationStrategy},
-    IntervalService],    
+    IntervalService,
+     provideStore({
+       routeIntervals
+    })
+    ],    
   bootstrap: [AppComponent]
 })
 export class AppModule { }
