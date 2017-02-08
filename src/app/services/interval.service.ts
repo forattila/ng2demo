@@ -5,12 +5,11 @@ import {Observable, Subject, BehaviorSubject} from 'rxjs/Rx';
 @Injectable()
 export class IntervalService {
 
-  private routeIntervalsSubject : BehaviorSubject < Array < RouteInterval >> = new BehaviorSubject < Array < RouteInterval >> ([]);
-  public finalizedRealizedBalances$ : Observable < Array < RouteInterval >>;
+  private routeIntervalsSubject : BehaviorSubject <Array <RouteInterval>> = new BehaviorSubject <Array <RouteInterval>> ([]);
 
-  public routeIntervals$ : Observable < Array < RouteInterval >>;
+  public routeIntervals$ : Observable <Array <RouteInterval>>;
 
-  private routeIntervals : Array < RouteInterval >;
+  private routeIntervals : Array <RouteInterval>;
 
   constructor() {
     this.routeIntervals$ = this
